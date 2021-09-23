@@ -1,0 +1,21 @@
+version: "3"
+services:
+  web:
+    depends_on:
+      - redis
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/home/node/code
+      - /home/node/code/node_modules
+    environment:
+      - REDIS_HOST=redis
+      - PORT=3000
+      - CRON_SCHEDULE=*/30 * * * *
+      - REDIS_EXPIRATION_SECONDS=1800
+      - EXIT_ADDRESSES_URL=https://check.torproject.org/exit-addresses
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"

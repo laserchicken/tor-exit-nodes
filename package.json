@@ -1,0 +1,27 @@
+{
+  "name": "backend-exercise-mateusz-kmiecinski",
+  "version": "1.0.0",
+  "description": "Design and implement a service checking whether provided IPv4 address is a [Tor](https://www.torproject.org/) exit node.",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "jest",
+    "health-check": "node src/healthCheck.js",
+    "lint": "eslint \"src/**/*.js\""
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npm run lint"
+  },
+  "author": "Mateusz Kmiecinski",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "node-cron": "^3.0.0",
+    "redis": "^3.1.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.28.0",
+    "jest": "^27.0.4",
+    "simple-git-hooks": "^2.4.1"
+  }
+}
